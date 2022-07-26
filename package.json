@@ -1,6 +1,6 @@
 {
   "name": "tumbaspedia-admin",
-  "homepage": "https://react.dashlite.net/demo2/",
+  "homepage": ".",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
