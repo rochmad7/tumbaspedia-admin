@@ -1,6 +1,6 @@
 {
   "name": "tumbaspedia-admin",
-  "homepage": ".",
+  "homepage": "https://admin-dashboard.tumbaspedia.my.id/",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
