@@ -7,7 +7,7 @@ import {
   BlockTitle,
   Button,
   Icon,
-  PreviewCard,
+  PreviewCard
 } from "../../components/Component";
 import Logo from "../../images/logo.png";
 import LogoDark from "../../images/logo-dark.png";
@@ -17,23 +17,29 @@ import Head from "../../layout/head/Head";
 import AuthFooter from "./AuthFooter";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { login } from "../../functions/auth";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const [passState, setPassState] = useState(false);
   const [errorVal, setError] = useState("");
 
-  const onFormSubmit = (formData) => {
+  const onFormSubmit = async (formData) => {
     setLoading(true);
     const loginName = "info@softnio.com";
     const pass = "123456";
-    if (formData.name === loginName && formData.passcode === pass) {
-      localStorage.setItem("accessToken", "token");
+
+    const loginResponse = await login(formData.email, formData.password)
+
+    // if (formData.name === loginName && formData.passcode === pass) {
+    if (loginResponse.data !== undefined) {
+      const token = loginResponse.data.access_token;
+      localStorage.setItem("accessToken", token);
       setTimeout(() => {
         window.history.pushState(
-          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/"}`,
+          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/ecommerce/index"}`,
           "auth-login",
-          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/"}`
+          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/ecommerce/index"}`
         );
         window.location.reload();
       }, 2000);
@@ -87,13 +93,13 @@ const Login = () => {
                   <input
                     type="text"
                     id="default-01"
-                    name="name"
+                    name="email"
                     ref={register({ required: "This field is required" })}
-                    defaultValue="info@softnio.com"
+                    // defaultValue="info@softnio.com"
                     placeholder="Enter your email address or username"
                     className="form-control-lg form-control"
                   />
-                  {errors.name && <span className="invalid">{errors.name.message}</span>}
+                  {errors.email && <span className="invalid">{errors.email.message}</span>}
                 </div>
               </FormGroup>
               <FormGroup>
@@ -121,13 +127,13 @@ const Login = () => {
                   <input
                     type={passState ? "text" : "password"}
                     id="password"
-                    name="passcode"
-                    defaultValue="123456"
+                    name="password"
+                    // defaultValue="123456"
                     ref={register({ required: "This field is required" })}
                     placeholder="Enter your passcode"
                     className={`form-control-lg form-control ${passState ? "is-hidden" : "is-shown"}`}
                   />
-                  {errors.passcode && <span className="invalid">{errors.passcode.message}</span>}
+                  {errors.password && <span className="invalid">{errors.password.message}</span>}
                 </div>
               </FormGroup>
               <FormGroup>

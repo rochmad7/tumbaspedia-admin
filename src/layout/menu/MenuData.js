@@ -26,8 +26,8 @@ const menu = [
       },
       {
         icon: "users-fill",
-        text: "Customers",
-        link: "/ecommerce/customer",
+        text: "Shops",
+        link: "/ecommerce/shop",
       },
       {
         icon: "chat-fill",

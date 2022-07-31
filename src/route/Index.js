@@ -113,6 +113,9 @@ import QuillPreview from "../pages/components/forms/rich-editor/QuillPreview";
 import TinymcePreview from "../pages/components/forms/rich-editor/TinymcePreview";
 import KnobPreview from "../pages/components/charts/KnobPreview";
 import { FileManagerContextProvider } from "../pages/app/file-manager/FileManagerContext";
+import ShopList from "../pages/panel/e-commerce/shop/ShopList";
+import { ShopProvider } from "../pages/panel/e-commerce/shop/ShopContext";
+import ShopDetails from "../pages/panel/e-commerce/shop/ShopDetails";
 
 const Pages = () => {
   useLayoutEffect(() => {
@@ -138,11 +141,29 @@ const Pages = () => {
         ></Route>
         <Route
           exact
+          path={`${process.env.PUBLIC_URL}/ecommerce/shop`}
+          render={() => (
+            <ShopProvider>
+              <ShopList />
+            </ShopProvider>
+          )}
+        ></Route>
+        <Route
+          exact
           path={`${process.env.PUBLIC_URL}/ecommerce/customer-details/:id`}
           render={(props) => (
             <CustomerProvider>
               <EcomCustomerDetails {...props} />
             </CustomerProvider>
+          )}
+        ></Route>
+        <Route
+          exact
+          path={`${process.env.PUBLIC_URL}/ecommerce/shop-details/:id`}
+          render={(props) => (
+            <ShopProvider>
+              <ShopDetails {...props} />
+            </ShopProvider>
           )}
         ></Route>
         <Route exact path={`${process.env.PUBLIC_URL}/ecommerce/settings`} component={EcomSettings}></Route>
