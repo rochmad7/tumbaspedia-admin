@@ -32,6 +32,7 @@ const ShopDetails = ({ match }) => {
   const history = useHistory();
 
   const [confirmVerification, setConfirmVerification] = useState(false);
+  const [verificationStatus, setVerificationStatus] = useState(false);
 
   const shopResponse = async (id) => {
     const shopResponse = await getShopById(id);
@@ -53,6 +54,7 @@ const ShopDetails = ({ match }) => {
     };
 
     fetchData().then(() => {
+      setVerificationStatus(shopData.is_verified);
       setShop(shopData);
     });
   }, [match.params.id, data]);
@@ -62,12 +64,12 @@ const ShopDetails = ({ match }) => {
     setSidebar(!sideBar);
   };
 
-  const confirmVerifyShop = async () => {
-    await verifyShop(shop.id);
+  const confirmVerifyShop = async (isVerified) => {
+    await verifyShop(shop.id, isVerified);
     setConfirmVerification(false);
     Swal.fire({
       title: "Sukses",
-      text: "Toko berhasil diverifikasi",
+      text: isVerified ? "Toko berhasil diverifikasi" : "Verifikasi toko berhasil dibatalkan",
     });
   };
 
@@ -205,12 +207,12 @@ const ShopDetails = ({ match }) => {
                             <span className="profile-ud-value">{shop.name}</span>
                           </div>
                         </div>
-                        {/*<div className="profile-ud-item">*/}
-                        {/*  <div className="profile-ud wider">*/}
-                        {/*    <span className="profile-ud-label">Date of Birth</span>*/}
-                        {/*    <span className="profile-ud-value">{shop.dob}</span>*/}
-                        {/*  </div>*/}
-                        {/*</div>*/}
+                        <div className="profile-ud-item">
+                          <div className="profile-ud wider">
+                            <span className="profile-ud-label">Nama Pemilik</span>
+                            <span className="profile-ud-value">{shop.user.name}</span>
+                          </div>
+                        </div>
                         <div className="profile-ud-item">
                           <div className="profile-ud wider">
                             <span className="profile-ud-label">Alamat</span>
@@ -274,11 +276,19 @@ const ShopDetails = ({ match }) => {
 
                     <div className="nk-divider divider md"></div>
                     <Block>
-                      <Button color="primary" className="toggle d-md-inline-flex"
-                              onClick={() => setConfirmVerification(true)}>
+                      {shop.is_verified == false ? <Button color="primary" className="toggle d-md-inline-flex"
+                                                           onClick={() => setConfirmVerification(true)}>
                         <Icon name="check"></Icon>
                         <span>Verifikasi Toko</span>
-                      </Button>
+                      </Button> : <Button color="secondary" className="toggle d-md-inline-flex"
+                                          onClick={() => {
+
+                                            setConfirmVerification(true);
+                                          }}>
+                        <Icon name="check"></Icon>
+                        <span>Batalkan Verifikasi</span>
+                      </Button>}
+
                     </Block>
                   </div>
                 </div>
@@ -302,7 +312,7 @@ const ShopDetails = ({ match }) => {
                       <Icon name="cross-sm"></Icon>
                     </a>
                     <div className="p-2">
-                      <h5 className="title">Konfirmasi Verifikasi Toko</h5>
+                      <h5 className="title">{verificationStatus == false ? 'Konfirmasi Verifikasi Toko' : 'Konfirmasi Pembatalan Verifikasi Toko'}</h5>
                       {/*  <div className="mt-4 mb-4">*/}
                       {/*    <textarea*/}
                       {/*      defaultValue={addNoteText}*/}
@@ -312,7 +322,8 @@ const ShopDetails = ({ match }) => {
                       {/*  </div>*/}
                       <ul className="align-center mt-4 flex-wrap flex-sm-nowrap gx-4 gy-2">
                         <li>
-                          <Button color="primary" size="md" type="submit" onClick={confirmVerifyShop}>
+                          <Button color="primary" size="md" type="submit"
+                                  onClick={() => confirmVerifyShop(!verificationStatus)}>
                             Verifikasi
                           </Button>
                         </li>

@@ -90,7 +90,6 @@ const ShopList = () => {
       shopData = await shopResponse();
     };
 
-    console.log(shopData);
     fetchData().then(() => {
       setData(shopData);
     });
@@ -261,53 +260,53 @@ const ShopList = () => {
                 <p>Terdapat {data.length} toko terdaftar.</p>
               </BlockDes>
             </BlockHeadContent>
-            <BlockHeadContent>
-              <div className="toggle-wrap nk-block-tools-toggle">
-                <Button
-                  className={`btn-icon btn-trigger toggle-expand mr-n1 ${sm ? "active" : ""}`}
-                  onClick={() => updateSm(!sm)}
-                >
-                  <Icon name="menu-alt-r"></Icon>
-                </Button>
-                <div className="toggle-expand-content" style={{ display: sm ? "block" : "none" }}>
-                  <ul className="nk-block-tools g-3">
-                    <li>
-                      <Button color="light" outline className="btn-white">
-                        <Icon name="download-cloud"></Icon>
-                        <span>Export</span>
-                      </Button>
-                    </li>
-                    <li className="nk-block-tools-opt">
-                      <Button color="primary" className="btn-icon" onClick={() => setModal({ add: true })}>
-                        <Icon name="plus"></Icon>
-                      </Button>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </BlockHeadContent>
+            {/*<BlockHeadContent>*/}
+            {/*  <div className="toggle-wrap nk-block-tools-toggle">*/}
+            {/*    <Button*/}
+            {/*      className={`btn-icon btn-trigger toggle-expand mr-n1 ${sm ? "active" : ""}`}*/}
+            {/*      onClick={() => updateSm(!sm)}*/}
+            {/*    >*/}
+            {/*      <Icon name="menu-alt-r"></Icon>*/}
+            {/*    </Button>*/}
+            {/*    <div className="toggle-expand-content" style={{ display: sm ? "block" : "none" }}>*/}
+            {/*      <ul className="nk-block-tools g-3">*/}
+            {/*        <li>*/}
+            {/*          <Button color="light" outline className="btn-white">*/}
+            {/*            <Icon name="download-cloud"></Icon>*/}
+            {/*            <span>Export</span>*/}
+            {/*          </Button>*/}
+            {/*        </li>*/}
+            {/*        <li className="nk-block-tools-opt">*/}
+            {/*          <Button color="primary" className="btn-icon" onClick={() => setModal({ add: true })}>*/}
+            {/*            <Icon name="plus"></Icon>*/}
+            {/*          </Button>*/}
+            {/*        </li>*/}
+            {/*      </ul>*/}
+            {/*    </div>*/}
+            {/*  </div>*/}
+            {/*</BlockHeadContent>*/}
           </BlockBetween>
         </BlockHead>
 
         <Block>
           <div className="nk-tb-list is-separate is-medium mb-3">
             <DataTableHead className="nk-tb-item">
-              <DataTableRow className="nk-tb-col-check">
-                <div className="custom-control custom-control-sm custom-checkbox notext">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input form-control"
-                    onChange={(e) => selectorCheck(e)}
-                    id="uid"
-                  />
-                  <label className="custom-control-label" htmlFor="uid"></label>
-                </div>
-              </DataTableRow>
+              {/*<DataTableRow className="nk-tb-col-check">*/}
+              {/*  <div className="custom-control custom-control-sm custom-checkbox notext">*/}
+              {/*    <input*/}
+              {/*      type="checkbox"*/}
+              {/*      className="custom-control-input form-control"*/}
+              {/*      onChange={(e) => selectorCheck(e)}*/}
+              {/*      id="uid"*/}
+              {/*    />*/}
+              {/*    <label className="custom-control-label" htmlFor="uid"></label>*/}
+              {/*  </div>*/}
+              {/*</DataTableRow>*/}
               <DataTableRow>
                 <span className="sub-text">Seller</span>
               </DataTableRow>
               <DataTableRow size="mb">
-                <span className="sub-text">Alamat</span>
+                <span className="sub-text">Pemilik</span>
               </DataTableRow>
               <DataTableRow size="md">
                 <span className="sub-text">Handphone</span>
@@ -321,61 +320,61 @@ const ShopList = () => {
               <DataTableRow size="md">
                 <span className="sub-text">Status</span>
               </DataTableRow>
-              <DataTableRow className="nk-tb-col-tools text-right">
-                <UncontrolledDropdown>
-                  <DropdownToggle color="tranparent" className="dropdown-toggle btn btn-icon btn-trigger mr-n1">
-                    <Icon name="more-h"></Icon>
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <ul className="link-list-opt no-bdr">
-                      <li>
-                        <DropdownItem
-                          tag="a"
-                          href="#"
-                          onClick={(ev) => {
-                            ev.preventDefault();
-                            selectorDeleteUser();
-                          }}
-                        >
-                          <Icon name="na"></Icon>
-                          <span>Remove Selected</span>
-                        </DropdownItem>
-                      </li>
-                      <li>
-                        <DropdownItem
-                          tag="a"
-                          href="#"
-                          onClick={(ev) => {
-                            ev.preventDefault();
-                            selectorSuspendUser();
-                          }}
-                        >
-                          <Icon name="trash"></Icon>
-                          <span>Suspend Selected</span>
-                        </DropdownItem>
-                      </li>
-                    </ul>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </DataTableRow>
+              {/*<DataTableRow className="nk-tb-col-tools text-right">*/}
+              {/*  <UncontrolledDropdown>*/}
+              {/*    <DropdownToggle color="tranparent" className="dropdown-toggle btn btn-icon btn-trigger mr-n1">*/}
+              {/*      <Icon name="more-h"></Icon>*/}
+              {/*    </DropdownToggle>*/}
+              {/*    <DropdownMenu right>*/}
+              {/*      <ul className="link-list-opt no-bdr">*/}
+              {/*        <li>*/}
+              {/*          <DropdownItem*/}
+              {/*            tag="a"*/}
+              {/*            href="#"*/}
+              {/*            onClick={(ev) => {*/}
+              {/*              ev.preventDefault();*/}
+              {/*              selectorDeleteUser();*/}
+              {/*            }}*/}
+              {/*          >*/}
+              {/*            <Icon name="na"></Icon>*/}
+              {/*            <span>Remove Selected</span>*/}
+              {/*          </DropdownItem>*/}
+              {/*        </li>*/}
+              {/*        <li>*/}
+              {/*          <DropdownItem*/}
+              {/*            tag="a"*/}
+              {/*            href="#"*/}
+              {/*            onClick={(ev) => {*/}
+              {/*              ev.preventDefault();*/}
+              {/*              selectorSuspendUser();*/}
+              {/*            }}*/}
+              {/*          >*/}
+              {/*            <Icon name="trash"></Icon>*/}
+              {/*            <span>Suspend Selected</span>*/}
+              {/*          </DropdownItem>*/}
+              {/*        </li>*/}
+              {/*      </ul>*/}
+              {/*    </DropdownMenu>*/}
+              {/*  </UncontrolledDropdown>*/}
+              {/*</DataTableRow>*/}
             </DataTableHead>
             {/*Head*/}
             {currentItems.length > 0
               ? currentItems.map((item) => (
                 <DataTableItem key={item.id}>
-                  <DataTableRow className="nk-tb-col-check">
-                    <div className="custom-control custom-control-sm custom-checkbox notext">
-                      <input
-                        type="checkbox"
-                        className="custom-control-input form-control"
-                        defaultChecked={item.checked}
-                        id={item.id + "uid1"}
-                        key={Math.random()}
-                        onChange={(e) => onSelectChange(e, item.id)}
-                      />
-                      <label className="custom-control-label" htmlFor={item.id + "uid1"}></label>
-                    </div>
-                  </DataTableRow>
+                  {/*<DataTableRow className="nk-tb-col-check">*/}
+                  {/*  <div className="custom-control custom-control-sm custom-checkbox notext">*/}
+                  {/*    <input*/}
+                  {/*      type="checkbox"*/}
+                  {/*      className="custom-control-input form-control"*/}
+                  {/*      defaultChecked={item.checked}*/}
+                  {/*      id={item.id + "uid1"}*/}
+                  {/*      key={Math.random()}*/}
+                  {/*      onChange={(e) => onSelectChange(e, item.id)}*/}
+                  {/*    />*/}
+                  {/*    <label className="custom-control-label" htmlFor={item.id + "uid1"}></label>*/}
+                  {/*  </div>*/}
+                  {/*</DataTableRow>*/}
                   <DataTableRow>
                     <Link to={`${process.env.PUBLIC_URL}/ecommerce/shop-details/${item.id}`}>
                       <div className="user-card">
@@ -391,7 +390,7 @@ const ShopList = () => {
                   </DataTableRow>
                   <DataTableRow size="mb">
                       <span>
-                        {item.address}
+                        {item.user.name}
                       </span>
                   </DataTableRow>
                   <DataTableRow size="md">
@@ -416,74 +415,74 @@ const ShopList = () => {
                         {item.is_verified === true ? "Terverifikasi" : "Belum Diverifikasi"}
                       </span>
                   </DataTableRow>
-                  <DataTableRow className="nk-tb-col-tools">
-                    <ul className="nk-tb-actions gx-1">
-                      <li className="nk-tb-action-hidden" onClick={() => onEditClick(item.id)}>
-                        <TooltipComponent
-                          tag="a"
-                          containerClassName="btn btn-trigger btn-icon"
-                          id={"edit" + item.id}
-                          icon="edit-alt-fill"
-                          direction="top"
-                          text="Edit"
-                        />
-                      </li>
-                      {item.status !== "Suspend" && (
-                        <React.Fragment>
-                          <li className="nk-tb-action-hidden" onClick={() => suspendUser(item.id)}>
-                            <TooltipComponent
-                              tag="a"
-                              containerClassName="btn btn-trigger btn-icon"
-                              id={"suspend" + item.id}
-                              icon="user-cross-fill"
-                              direction="top"
-                              text="Suspend"
-                            />
-                          </li>
-                        </React.Fragment>
-                      )}
-                      <li>
-                        <UncontrolledDropdown>
-                          <DropdownToggle tag="a" className="dropdown-toggle btn btn-icon btn-trigger">
-                            <Icon name="more-h"></Icon>
-                          </DropdownToggle>
-                          <DropdownMenu right>
-                            <ul className="link-list-opt no-bdr">
-                              <li onClick={() => onEditClick(item.id)}>
-                                <DropdownItem
-                                  tag="a"
-                                  href="#edit"
-                                  onClick={(ev) => {
-                                    ev.preventDefault();
-                                  }}
-                                >
-                                  <Icon name="edit"></Icon>
-                                  <span>Edit</span>
-                                </DropdownItem>
-                              </li>
-                              {item.status !== "Suspend" && (
-                                <React.Fragment>
-                                  <li className="divider"></li>
-                                  <li onClick={() => suspendUser(item.id)}>
-                                    <DropdownItem
-                                      tag="a"
-                                      href="#suspend"
-                                      onClick={(ev) => {
-                                        ev.preventDefault();
-                                      }}
-                                    >
-                                      <Icon name="na"></Icon>
-                                      <span>Suspend User</span>
-                                    </DropdownItem>
-                                  </li>
-                                </React.Fragment>
-                              )}
-                            </ul>
-                          </DropdownMenu>
-                        </UncontrolledDropdown>
-                      </li>
-                    </ul>
-                  </DataTableRow>
+                  {/*<DataTableRow className="nk-tb-col-tools">*/}
+                  {/*  <ul className="nk-tb-actions gx-1">*/}
+                  {/*    <li className="nk-tb-action-hidden" onClick={() => onEditClick(item.id)}>*/}
+                  {/*      <TooltipComponent*/}
+                  {/*        tag="a"*/}
+                  {/*        containerClassName="btn btn-trigger btn-icon"*/}
+                  {/*        id={"edit" + item.id}*/}
+                  {/*        icon="edit-alt-fill"*/}
+                  {/*        direction="top"*/}
+                  {/*        text="Edit"*/}
+                  {/*      />*/}
+                  {/*    </li>*/}
+                  {/*    {item.status !== "Suspend" && (*/}
+                  {/*      <React.Fragment>*/}
+                  {/*        <li className="nk-tb-action-hidden" onClick={() => suspendUser(item.id)}>*/}
+                  {/*          <TooltipComponent*/}
+                  {/*            tag="a"*/}
+                  {/*            containerClassName="btn btn-trigger btn-icon"*/}
+                  {/*            id={"suspend" + item.id}*/}
+                  {/*            icon="user-cross-fill"*/}
+                  {/*            direction="top"*/}
+                  {/*            text="Suspend"*/}
+                  {/*          />*/}
+                  {/*        </li>*/}
+                  {/*      </React.Fragment>*/}
+                  {/*    )}*/}
+                  {/*    <li>*/}
+                  {/*      <UncontrolledDropdown>*/}
+                  {/*        <DropdownToggle tag="a" className="dropdown-toggle btn btn-icon btn-trigger">*/}
+                  {/*          <Icon name="more-h"></Icon>*/}
+                  {/*        </DropdownToggle>*/}
+                  {/*        <DropdownMenu right>*/}
+                  {/*          <ul className="link-list-opt no-bdr">*/}
+                  {/*            <li onClick={() => onEditClick(item.id)}>*/}
+                  {/*              <DropdownItem*/}
+                  {/*                tag="a"*/}
+                  {/*                href="#edit"*/}
+                  {/*                onClick={(ev) => {*/}
+                  {/*                  ev.preventDefault();*/}
+                  {/*                }}*/}
+                  {/*              >*/}
+                  {/*                <Icon name="edit"></Icon>*/}
+                  {/*                <span>Edit</span>*/}
+                  {/*              </DropdownItem>*/}
+                  {/*            </li>*/}
+                  {/*            {item.status !== "Suspend" && (*/}
+                  {/*              <React.Fragment>*/}
+                  {/*                <li className="divider"></li>*/}
+                  {/*                <li onClick={() => suspendUser(item.id)}>*/}
+                  {/*                  <DropdownItem*/}
+                  {/*                    tag="a"*/}
+                  {/*                    href="#suspend"*/}
+                  {/*                    onClick={(ev) => {*/}
+                  {/*                      ev.preventDefault();*/}
+                  {/*                    }}*/}
+                  {/*                  >*/}
+                  {/*                    <Icon name="na"></Icon>*/}
+                  {/*                    <span>Suspend User</span>*/}
+                  {/*                  </DropdownItem>*/}
+                  {/*                </li>*/}
+                  {/*              </React.Fragment>*/}
+                  {/*            )}*/}
+                  {/*          </ul>*/}
+                  {/*        </DropdownMenu>*/}
+                  {/*      </UncontrolledDropdown>*/}
+                  {/*    </li>*/}
+                  {/*  </ul>*/}
+                  {/*</DataTableRow>*/}
                 </DataTableItem>
               ))
               : null}
@@ -620,125 +619,125 @@ const ShopList = () => {
           </ModalBody>
         </Modal>
 
-        <Modal isOpen={modal.edit} toggle={() => setModal({ edit: false })} className="modal-dialog-centered" size="lg">
-          <ModalBody>
-            <a
-              href="#cancel"
-              onClick={(ev) => {
-                ev.preventDefault();
-                onFormCancel();
-              }}
-              className="close"
-            >
-              <Icon name="cross-sm"></Icon>
-            </a>
-            <div className="p-2">
-              <h5 className="title">Update User</h5>
-              <div className="mt-4">
-                <Form className="row gy-4" onSubmit={handleSubmit(onEditSubmit)}>
-                  <Col md="6">
-                    <FormGroup>
-                      <label className="form-label">Name</label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="name"
-                        defaultValue={formData.name}
-                        placeholder="Enter name"
-                        ref={register({ required: "This field is required" })}
-                      />
-                      {errors.name && <span className="invalid">{errors.name.message}</span>}
-                    </FormGroup>
-                  </Col>
-                  <Col md="6">
-                    <FormGroup>
-                      <label className="form-label">Email</label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        name="email"
-                        defaultValue={formData.email}
-                        placeholder="Enter email"
-                        ref={register({
-                          required: "This field is required",
-                          pattern: {
-                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                            message: "invalid email address"
-                          }
-                        })}
-                      />
-                      {errors.email && <span className="invalid">{errors.email.message}</span>}
-                    </FormGroup>
-                  </Col>
-                  <Col md="6">
-                    <FormGroup>
-                      <label className="form-label">Ordered</label>
-                      <input
-                        className="form-control"
-                        type="number"
-                        name="balance"
-                        disabled
-                        defaultValue={parseFloat(formData.balance.replace(/,/g, ""))}
-                        placeholder="Ordered"
-                        ref={register({ required: "This field is required" })}
-                      />
-                      {errors.balance && <span className="invalid">{errors.balance.message}</span>}
-                    </FormGroup>
-                  </Col>
-                  <Col md="6">
-                    <FormGroup>
-                      <label className="form-label">Phone</label>
-                      <input
-                        className="form-control"
-                        type="number"
-                        name="phone"
-                        defaultValue={Number(formData.phone)}
-                        ref={register({ required: "This field is required" })}
-                      />
-                      {errors.phone && <span className="invalid">{errors.phone.message}</span>}
-                    </FormGroup>
-                  </Col>
-                  <Col md="12">
-                    <FormGroup>
-                      <label className="form-label">Status</label>
-                      <div className="form-control-wrap">
-                        <RSelect
-                          // options={filterStatus}
-                          defaultValue={{
-                            value: formData.status,
-                            label: formData.status
-                          }}
-                          onChange={(e) => setFormData({ ...formData, status: e.value })}
-                        />
-                      </div>
-                    </FormGroup>
-                  </Col>
-                  <Col size="12">
-                    <ul className="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                      <li>
-                        <Button color="primary" size="md" type="submit">
-                          Update User
-                        </Button>
-                      </li>
-                      <li>
-                        <a
-                          href="#cancel"
-                          onClick={(ev) => {
-                            ev.preventDefault();
-                            onFormCancel();
-                          }}
-                          className="link link-light"
-                        >
-                          Cancel
-                        </a>
-                      </li>
-                    </ul>
-                  </Col>
-                </Form>
-              </div>
-            </div>
-          </ModalBody>
-        </Modal>
+        {/*<Modal isOpen={modal.edit} toggle={() => setModal({ edit: false })} className="modal-dialog-centered" size="lg">*/}
+        {/*  <ModalBody>*/}
+        {/*    <a*/}
+        {/*      href="#cancel"*/}
+        {/*      onClick={(ev) => {*/}
+        {/*        ev.preventDefault();*/}
+        {/*        onFormCancel();*/}
+        {/*      }}*/}
+        {/*      className="close"*/}
+        {/*    >*/}
+        {/*      <Icon name="cross-sm"></Icon>*/}
+        {/*    </a>*/}
+        {/*    <div className="p-2">*/}
+        {/*      <h5 className="title">Update User</h5>*/}
+        {/*      <div className="mt-4">*/}
+        {/*        <Form className="row gy-4" onSubmit={handleSubmit(onEditSubmit)}>*/}
+        {/*          <Col md="6">*/}
+        {/*            <FormGroup>*/}
+        {/*              <label className="form-label">Name</label>*/}
+        {/*              <input*/}
+        {/*                className="form-control"*/}
+        {/*                type="text"*/}
+        {/*                name="name"*/}
+        {/*                defaultValue={formData.name}*/}
+        {/*                placeholder="Enter name"*/}
+        {/*                ref={register({ required: "This field is required" })}*/}
+        {/*              />*/}
+        {/*              {errors.name && <span className="invalid">{errors.name.message}</span>}*/}
+        {/*            </FormGroup>*/}
+        {/*          </Col>*/}
+        {/*          <Col md="6">*/}
+        {/*            <FormGroup>*/}
+        {/*              <label className="form-label">Email</label>*/}
+        {/*              <input*/}
+        {/*                className="form-control"*/}
+        {/*                type="text"*/}
+        {/*                name="email"*/}
+        {/*                defaultValue={formData.email}*/}
+        {/*                placeholder="Enter email"*/}
+        {/*                ref={register({*/}
+        {/*                  required: "This field is required",*/}
+        {/*                  pattern: {*/}
+        {/*                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,*/}
+        {/*                    message: "invalid email address"*/}
+        {/*                  }*/}
+        {/*                })}*/}
+        {/*              />*/}
+        {/*              {errors.email && <span className="invalid">{errors.email.message}</span>}*/}
+        {/*            </FormGroup>*/}
+        {/*          </Col>*/}
+        {/*          <Col md="6">*/}
+        {/*            <FormGroup>*/}
+        {/*              <label className="form-label">Ordered</label>*/}
+        {/*              <input*/}
+        {/*                className="form-control"*/}
+        {/*                type="number"*/}
+        {/*                name="balance"*/}
+        {/*                disabled*/}
+        {/*                defaultValue={parseFloat(formData.balance.replace(/,/g, ""))}*/}
+        {/*                placeholder="Ordered"*/}
+        {/*                ref={register({ required: "This field is required" })}*/}
+        {/*              />*/}
+        {/*              {errors.balance && <span className="invalid">{errors.balance.message}</span>}*/}
+        {/*            </FormGroup>*/}
+        {/*          </Col>*/}
+        {/*          <Col md="6">*/}
+        {/*            <FormGroup>*/}
+        {/*              <label className="form-label">Phone</label>*/}
+        {/*              <input*/}
+        {/*                className="form-control"*/}
+        {/*                type="number"*/}
+        {/*                name="phone"*/}
+        {/*                defaultValue={Number(formData.phone)}*/}
+        {/*                ref={register({ required: "This field is required" })}*/}
+        {/*              />*/}
+        {/*              {errors.phone && <span className="invalid">{errors.phone.message}</span>}*/}
+        {/*            </FormGroup>*/}
+        {/*          </Col>*/}
+        {/*          <Col md="12">*/}
+        {/*            <FormGroup>*/}
+        {/*              <label className="form-label">Status</label>*/}
+        {/*              <div className="form-control-wrap">*/}
+        {/*                <RSelect*/}
+        {/*                  // options={filterStatus}*/}
+        {/*                  defaultValue={{*/}
+        {/*                    value: formData.status,*/}
+        {/*                    label: formData.status*/}
+        {/*                  }}*/}
+        {/*                  onChange={(e) => setFormData({ ...formData, status: e.value })}*/}
+        {/*                />*/}
+        {/*              </div>*/}
+        {/*            </FormGroup>*/}
+        {/*          </Col>*/}
+        {/*          <Col size="12">*/}
+        {/*            <ul className="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">*/}
+        {/*              <li>*/}
+        {/*                <Button color="primary" size="md" type="submit">*/}
+        {/*                  Update User*/}
+        {/*                </Button>*/}
+        {/*              </li>*/}
+        {/*              <li>*/}
+        {/*                <a*/}
+        {/*                  href="#cancel"*/}
+        {/*                  onClick={(ev) => {*/}
+        {/*                    ev.preventDefault();*/}
+        {/*                    onFormCancel();*/}
+        {/*                  }}*/}
+        {/*                  className="link link-light"*/}
+        {/*                >*/}
+        {/*                  Cancel*/}
+        {/*                </a>*/}
+        {/*              </li>*/}
+        {/*            </ul>*/}
+        {/*          </Col>*/}
+        {/*        </Form>*/}
+        {/*      </div>*/}
+        {/*    </div>*/}
+        {/*  </ModalBody>*/}
+        {/*</Modal>*/}
       </Content>
     </React.Fragment>
   );

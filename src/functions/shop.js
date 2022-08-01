@@ -12,10 +12,10 @@ export const getShopById = async (id) => {
   return await axios.get(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/shops/${id}`);
 };
 
-export const verifyShop = async (id) => {
+export const verifyShop = async (id, isVerified) => {
 
   return await axios.patch(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/shops/verify/${id}`, {
-    is_verified: true
+    is_verified: isVerified
   }, {
     headers: {
       "Content-Type": "application/json",
