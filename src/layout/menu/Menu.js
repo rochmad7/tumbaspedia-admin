@@ -216,23 +216,23 @@ const PanelItem = ({ icon, link, text, subPanel, index, data, setMenuData, ...pr
             badge={item.badge}
           />
         ))}
-        <MenuHeading heading="Return to" />
-        <li className={menuItemClass}>
-          <Link to={`${process.env.PUBLIC_URL}/`} className="nk-menu-link" onClick={() => setMenuData(menu)}>
-            <span className="nk-menu-icon">
-              <Icon name="dashlite-alt" />
-            </span>
-            <span className="nk-menu-text">Main Dashboard</span>
-          </Link>
-        </li>
-        <li className={menuItemClass}>
-          <Link to={`${process.env.PUBLIC_URL}/`} className="nk-menu-link" onClick={() => setMenuData(menu)}>
-            <span className="nk-menu-icon">
-              <Icon name="layers-fill" />
-            </span>
-            <span className="nk-menu-text">All Components</span>
-          </Link>
-        </li>
+        {/*<MenuHeading heading="Return to" />*/}
+        {/*<li className={menuItemClass}>*/}
+        {/*  <Link to={`${process.env.PUBLIC_URL}/`} className="nk-menu-link" onClick={() => setMenuData(menu)}>*/}
+        {/*    <span className="nk-menu-icon">*/}
+        {/*      <Icon name="dashlite-alt" />*/}
+        {/*    </span>*/}
+        {/*    <span className="nk-menu-text">Main Dashboard</span>*/}
+        {/*  </Link>*/}
+        {/*</li>*/}
+        {/*<li className={menuItemClass}>*/}
+        {/*  <Link to={`${process.env.PUBLIC_URL}/`} className="nk-menu-link" onClick={() => setMenuData(menu)}>*/}
+        {/*    <span className="nk-menu-icon">*/}
+        {/*      <Icon name="layers-fill" />*/}
+        {/*    </span>*/}
+        {/*    <span className="nk-menu-text">All Components</span>*/}
+        {/*  </Link>*/}
+        {/*</li>*/}
       </React.Fragment>
     );
   }

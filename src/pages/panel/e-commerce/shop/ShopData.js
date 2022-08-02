@@ -7,7 +7,7 @@ import User4 from "../../../../images/avatar/d-sm.jpg";
 const UserData =
   {
     id: 1,
-    name: "John Doe",
+    name: "",
     email: "",
     phone_number: "",
     address: ""

@@ -16,34 +16,34 @@ const menu = [
       },
       {
         icon: "bag-fill",
-        text: "Orders",
+        text: "Transaksi",
         link: "/ecommerce/orders",
       },
-      {
-        icon: "package-fill",
-        text: "Products",
-        link: "/ecommerce/products",
-      },
+      // {
+      //   icon: "package-fill",
+      //   text: "Products",
+      //   link: "/ecommerce/products",
+      // },
       {
         icon: "users-fill",
-        text: "Shops",
+        text: "Toko",
         link: "/ecommerce/shop",
       },
-      {
-        icon: "chat-fill",
-        text: "Support",
-        link: "/ecommerce/support",
-      },
-      {
-        icon: "opt-alt-fill",
-        text: "Settings",
-        link: "/ecommerce/settings",
-      },
-      {
-        icon: "server-fill",
-        text: "Integration",
-        link: "/ecommerce/integration",
-      },
+      // {
+      //   icon: "chat-fill",
+      //   text: "Support",
+      //   link: "/ecommerce/support",
+      // },
+      // {
+      //   icon: "opt-alt-fill",
+      //   text: "Settings",
+      //   link: "/ecommerce/settings",
+      // },
+      // {
+      //   icon: "server-fill",
+      //   text: "Integration",
+      //   link: "/ecommerce/integration",
+      // },
     ],
   },
   {

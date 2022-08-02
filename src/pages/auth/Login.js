@@ -26,15 +26,14 @@ const Login = () => {
 
   const onFormSubmit = async (formData) => {
     setLoading(true);
-    const loginName = "info@softnio.com";
-    const pass = "123456";
-
     const loginResponse = await login(formData.email, formData.password)
 
     // if (formData.name === loginName && formData.passcode === pass) {
     if (loginResponse.data !== undefined) {
       const token = loginResponse.data.access_token;
       localStorage.setItem("accessToken", token);
+      localStorage.setItem("userName", loginResponse.data.user.name);
+      localStorage.setItem("userEmail", loginResponse.data.user.email);
       setTimeout(() => {
         window.history.pushState(
           `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/ecommerce/index"}`,

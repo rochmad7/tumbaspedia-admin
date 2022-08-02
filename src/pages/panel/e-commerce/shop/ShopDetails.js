@@ -18,7 +18,6 @@ import {
 import { useHistory } from "react-router";
 import Content from "../../../../layout/content/Content";
 import Head from "../../../../layout/head/Head";
-import { currentTime, findUpper, monthNames, todaysDate } from "../../../../utils/Utils";
 import { ShopContext } from "./ShopContext";
 import { getShopById, verifyShop } from "../../../../functions/shop";
 import Swal from "sweetalert2";
