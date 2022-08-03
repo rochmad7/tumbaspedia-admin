@@ -425,7 +425,7 @@ const OrderDefault = () => {
                     <span className="tb-sub text-primary">{item.user.name}</span>
                   </DataTableRow>
                   <DataTableRow>
-                    <span className="tb-lead">Rp. {item.total}</span>
+                    <span className="tb-lead">Rp. {parseInt(item.total).toLocaleString('id-ID')}</span>
                   </DataTableRow>
                   {/*<DataTableRow className="nk-tb-col-tools">*/}
                   {/*  <ul className="nk-tb-actions gx-1">*/}

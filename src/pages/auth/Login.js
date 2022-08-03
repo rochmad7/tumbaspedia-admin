@@ -93,9 +93,9 @@ const Login = () => {
                     type="text"
                     id="default-01"
                     name="email"
-                    ref={register({ required: "This field is required" })}
+                    ref={register({ required: "Kolom ini wajib diisi" })}
                     // defaultValue="info@softnio.com"
-                    placeholder="Enter your email address or username"
+                    placeholder="Masukkan email Anda"
                     className="form-control-lg form-control"
                   />
                   {errors.email && <span className="invalid">{errors.email.message}</span>}
@@ -128,8 +128,8 @@ const Login = () => {
                     id="password"
                     name="password"
                     // defaultValue="123456"
-                    ref={register({ required: "This field is required" })}
-                    placeholder="Enter your passcode"
+                    ref={register({ required: "Kolom ini wajib diisi" })}
+                    placeholder="Masukkan password Anda"
                     className={`form-control-lg form-control ${passState ? "is-hidden" : "is-shown"}`}
                   />
                   {errors.password && <span className="invalid">{errors.password.message}</span>}

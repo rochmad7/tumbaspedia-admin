@@ -62,7 +62,7 @@ const User = () => {
           <LinkList>
             <a href={`${process.env.PUBLIC_URL}/auth-login`} onClick={handleSignout}>
               <Icon name="signout"></Icon>
-              <span>Sign Out</span>
+              <span>Keluar</span>
             </a>
           </LinkList>
         </div>

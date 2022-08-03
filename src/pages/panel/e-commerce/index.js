@@ -30,18 +30,18 @@ const Dashboard = () => {
             <Col xxl="4" md="6">
               <TotalSales />
             </Col>
+            {/*<Col xxl="4" md="6">*/}
+            {/*  <AverageOrder />*/}
+            {/*</Col>*/}
             <Col xxl="4" md="6">
-              <AverageOrder />
-            </Col>
-            <Col xxl="4">
-              <Row className="g-gs">
-                <Col xxl="12" md="6">
+              {/*<Row className="g-gs">*/}
+                <Col xxl="12">
                   <Orders />
                 </Col>
-                <Col xxl="12" md="6">
+                <Col xxl="12">
                   <Customer />
                 </Col>
-              </Row>
+              {/*</Row>*/}
             </Col>
             {/*<Col xxl="8">*/}
             {/*  <RecentOrders />*/}
