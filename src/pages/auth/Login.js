@@ -36,9 +36,9 @@ const Login = () => {
       localStorage.setItem("userEmail", loginResponse.data.user.email);
       setTimeout(() => {
         window.history.pushState(
-          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/ecommerce/index"}`,
+          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/"}`,
           "auth-login",
-          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/ecommerce/index"}`
+          `${process.env.PUBLIC_URL ? process.env.PUBLIC_URL : "/"}`
         );
         window.location.reload();
       }, 2000);
@@ -67,9 +67,9 @@ const Login = () => {
           <PreviewCard className="card-bordered" bodyClass="card-inner-lg">
             <BlockHead>
               <BlockContent>
-                <BlockTitle tag="h4">Sign-In</BlockTitle>
+                <BlockTitle tag="h4">Masuk</BlockTitle>
                 <BlockDes>
-                  <p>Access Dashlite using your email and passcode.</p>
+                  <p>Silakan masukkan email dan password Anda.</p>
                 </BlockDes>
               </BlockContent>
             </BlockHead>
@@ -77,7 +77,7 @@ const Login = () => {
               <div className="mb-3">
                 <Alert color="danger" className="alert-icon">
                   {" "}
-                  <Icon name="alert-circle" /> Unable to login with credentials{" "}
+                  <Icon name="alert-circle" /> Tidak bisa login dengan identitas tersebut.{" "}
                 </Alert>
               </div>
             )}
@@ -85,7 +85,7 @@ const Login = () => {
               <FormGroup>
                 <div className="form-label-group">
                   <label className="form-label" htmlFor="default-01">
-                    Email or Username
+                    Email
                   </label>
                 </div>
                 <div className="form-control-wrap">
@@ -104,11 +104,11 @@ const Login = () => {
               <FormGroup>
                 <div className="form-label-group">
                   <label className="form-label" htmlFor="password">
-                    Passcode
+                    Password
                   </label>
-                  <Link className="link link-primary link-sm" to={`${process.env.PUBLIC_URL}/auth-reset`}>
-                    Forgot Code?
-                  </Link>
+                  {/*<Link className="link link-primary link-sm" to={`${process.env.PUBLIC_URL}/auth-reset`}>*/}
+                  {/*  Forgot Code?*/}
+                  {/*</Link>*/}
                 </div>
                 <div className="form-control-wrap">
                   <a
@@ -141,39 +141,39 @@ const Login = () => {
                 </Button>
               </FormGroup>
             </Form>
-            <div className="form-note-s2 text-center pt-4">
-              {" "}
-              New on our platform? <Link to={`${process.env.PUBLIC_URL}/auth-register`}>Create an account</Link>
-            </div>
-            <div className="text-center pt-4 pb-3">
-              <h6 className="overline-title overline-title-sap">
-                <span>OR</span>
-              </h6>
-            </div>
-            <ul className="nav justify-center gx-4">
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="#socials"
-                  onClick={(ev) => {
-                    ev.preventDefault();
-                  }}
-                >
-                  Facebook
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="#socials"
-                  onClick={(ev) => {
-                    ev.preventDefault();
-                  }}
-                >
-                  Google
-                </a>
-              </li>
-            </ul>
+            {/*<div className="form-note-s2 text-center pt-4">*/}
+            {/*  {" "}*/}
+            {/*  New on our platform? <Link to={`${process.env.PUBLIC_URL}/auth-register`}>Create an account</Link>*/}
+            {/*</div>*/}
+            {/*<div className="text-center pt-4 pb-3">*/}
+            {/*  <h6 className="overline-title overline-title-sap">*/}
+            {/*    <span>OR</span>*/}
+            {/*  </h6>*/}
+            {/*</div>*/}
+            {/*<ul className="nav justify-center gx-4">*/}
+            {/*  <li className="nav-item">*/}
+            {/*    <a*/}
+            {/*      className="nav-link"*/}
+            {/*      href="#socials"*/}
+            {/*      onClick={(ev) => {*/}
+            {/*        ev.preventDefault();*/}
+            {/*      }}*/}
+            {/*    >*/}
+            {/*      Facebook*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+            {/*  <li className="nav-item">*/}
+            {/*    <a*/}
+            {/*      className="nav-link"*/}
+            {/*      href="#socials"*/}
+            {/*      onClick={(ev) => {*/}
+            {/*        ev.preventDefault();*/}
+            {/*      }}*/}
+            {/*    >*/}
+            {/*      Google*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+            {/*</ul>*/}
           </PreviewCard>
         </Block>
         <AuthFooter />

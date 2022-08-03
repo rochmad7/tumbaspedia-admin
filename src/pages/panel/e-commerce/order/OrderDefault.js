@@ -46,10 +46,10 @@ const OrderDefault = () => {
   const [onSearchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemPerPage] = useState(7);
+  const [onStatus, setOnStatus] = useState("");
 
-
-  const transactionResponse = async () => {
-    const transactionResponse = await getAllTransactions();
+  const transactionResponse = async (search, status) => {
+    const transactionResponse = await getAllTransactions(search, status);
     return transactionResponse.data.data;
   };
 
@@ -67,14 +67,14 @@ const OrderDefault = () => {
     //   setData([...orderData]);
     // }
     const fetchData = async () => {
-      newData = await transactionResponse();
+      newData = await transactionResponse(onSearchText, onStatus);
       shopData = newData;
     };
 
     fetchData().then(() => {
       setData(shopData);
     });
-  }, [onSearchText]);
+  }, [onSearchText, onStatus]);
 
   // toggle function to view order details
   const toggle = (type) => {
@@ -147,6 +147,10 @@ const OrderDefault = () => {
   // onChange function for searching name
   const onFilterChange = (e) => {
     setSearchText(e.target.value);
+  };
+
+  const onStatusChange = (status) => {
+    setOnStatus(status);
   };
 
   // function to close the form modal
@@ -229,7 +233,7 @@ const OrderDefault = () => {
                           type="text"
                           className="form-control"
                           id="default-04"
-                          placeholder="Search by orderId"
+                          placeholder="Cari berdasarkan ID"
                           onChange={(e) => onFilterChange(e)}
                         />
                       </div>
@@ -245,18 +249,23 @@ const OrderDefault = () => {
                         <DropdownMenu right>
                           <ul className="link-list-opt no-bdr">
                             <li>
-                              <DropdownItem tag="a" href="#dropdownitem" onClick={(ev) => ev.preventDefault()}>
-                                <span>New Items</span>
+                              <DropdownItem onClick={() => onStatusChange("pending")}>
+                                <span>Tertunda</span>
                               </DropdownItem>
                             </li>
                             <li>
-                              <DropdownItem tag="a" href="#dropdownitem" onClick={(ev) => ev.preventDefault()}>
-                                <span>Featured</span>
+                              <DropdownItem onClick={() => onStatusChange("on_delivery")}>
+                                <span>Sedang Dikirim</span>
                               </DropdownItem>
                             </li>
                             <li>
-                              <DropdownItem tag="a" href="#dropdownitem" onClick={(ev) => ev.preventDefault()}>
-                                <span>Out of Stock</span>
+                              <DropdownItem onClick={() => onStatusChange("canceled")}>
+                                <span>Dibatalkan</span>
+                              </DropdownItem>
+                            </li>
+                            <li>
+                              <DropdownItem onClick={() => onStatusChange("delivered")}>
+                                <span>Selesai</span>
                               </DropdownItem>
                             </li>
                           </ul>
@@ -387,7 +396,7 @@ const OrderDefault = () => {
                   {/*  </div>*/}
                   {/*</DataTableRow>*/}
                   <DataTableRow>
-                    <a href="#id" onClick={(ev) => ev.preventDefault()}>
+                    <a href="" onClick={(ev) => ev.preventDefault()}>
                       #{item.id}
                     </a>
                   </DataTableRow>
@@ -406,7 +415,7 @@ const OrderDefault = () => {
                         item.status === "delivered" ? "info" : item.status === "on_delivery" ? "success" : item.status === "pending" ? "warning" : "danger"
                       } d-none d-mb-inline-flex`}
                     >
-                        {item.status}
+                        {item.status === "delivered" ? "Selesai" : item.status === "on_delivery" ? "Sedang Dikirim" : item.status === "pending" ? "Tertunda" : "Dibatalkan"}
                       </span>
                   </DataTableRow>
                   <DataTableRow size="md">
@@ -517,7 +526,7 @@ const OrderDefault = () => {
               />
             ) : (
               <div className="text-center">
-                <span className="text-silent">No orders found</span>
+                <span className="text-silent">Transaksi tidak ditemukan</span>
               </div>
             )}
           </PreviewAltCard>

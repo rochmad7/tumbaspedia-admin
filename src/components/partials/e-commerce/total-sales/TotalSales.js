@@ -12,11 +12,11 @@ const TotalSales = () => {
             <div className="card-title">
               <h6 className="title">Total Sales</h6>
             </div>
-            <div className="card-tools">
-              <a href="#report" onClick={(ev) => ev.preventDefault()} className="link">
-                View Report
-              </a>
-            </div>
+            {/*<div className="card-tools">*/}
+            {/*  <a href="#report" onClick={(ev) => ev.preventDefault()} className="link">*/}
+            {/*    View Report*/}
+            {/*  </a>*/}
+            {/*</div>*/}
           </div>
           <div className="data">
             <div className="amount">$74,958.49</div>

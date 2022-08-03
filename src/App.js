@@ -24,18 +24,18 @@ const App = (props) => {
     <Switch>
       {/* Auth Pages */}
       <Route exact path={`${process.env.PUBLIC_URL}/auth-success`} component={Success}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/auth-reset`} component={ForgotPassword}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/auth-register`} component={Register}></Route>
+      {/*<Route exact path={`${process.env.PUBLIC_URL}/auth-reset`} component={ForgotPassword}></Route>*/}
+      {/*<Route exact path={`${process.env.PUBLIC_URL}/auth-register`} component={Register}></Route>*/}
       <Route exact path={`${process.env.PUBLIC_URL}/auth-login`} component={Login}></Route>
 
       {/* Print Pages */}
-      <Route exact path={`${process.env.PUBLIC_URL}/invoice-print/:id`} component={InvoicePrint}></Route>
+      {/*<Route exact path={`${process.env.PUBLIC_URL}/invoice-print/:id`} component={InvoicePrint}></Route>*/}
 
       {/* Helper pages */}
-      <Route exact path={`${process.env.PUBLIC_URL}/auths/terms`} component={Terms}></Route>
-      <Route exact path={`${process.env.PUBLIC_URL}/auths/faq`} component={Faq}></Route>
+      {/*<Route exact path={`${process.env.PUBLIC_URL}/auths/terms`} component={Terms}></Route>*/}
+      {/*<Route exact path={`${process.env.PUBLIC_URL}/auths/faq`} component={Faq}></Route>*/}
 
-      <Route exact path={`${process.env.PUBLIC_URL}/invoice-print`} component={InvoicePrint}></Route>
+      {/*<Route exact path={`${process.env.PUBLIC_URL}/invoice-print`} component={InvoicePrint}></Route>*/}
 
       {/*Error Pages*/}
       <Route exact path={`${process.env.PUBLIC_URL}/errors/404-classic`} component={Error404Classic}></Route>

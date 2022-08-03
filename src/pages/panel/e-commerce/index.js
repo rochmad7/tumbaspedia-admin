@@ -43,21 +43,21 @@ const Dashboard = () => {
                 </Col>
               </Row>
             </Col>
-            <Col xxl="8">
-              <RecentOrders />
-            </Col>
-            <Col xxl="4" md="6">
-              <TopProducts />
-            </Col>
-            <Col xxl="3" md="6">
-              <StoreStatistics />
-            </Col>
-            <Col xxl="5" lg="6">
-              <TrafficSources />
-            </Col>
-            <Col xxl="4" lg="6">
-              <StoreVisitors />
-            </Col>
+            {/*<Col xxl="8">*/}
+            {/*  <RecentOrders />*/}
+            {/*</Col>*/}
+            {/*<Col xxl="4" md="6">*/}
+            {/*  <TopProducts />*/}
+            {/*</Col>*/}
+            {/*<Col xxl="3" md="6">*/}
+            {/*  <StoreStatistics />*/}
+            {/*</Col>*/}
+            {/*<Col xxl="5" lg="6">*/}
+            {/*  <TrafficSources />*/}
+            {/*</Col>*/}
+            {/*<Col xxl="4" lg="6">*/}
+            {/*  <StoreVisitors />*/}
+            {/*</Col>*/}
           </Row>
         </Block>
       </Content>
