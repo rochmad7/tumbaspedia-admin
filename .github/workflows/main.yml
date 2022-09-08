@@ -13,6 +13,10 @@ jobs:
     - uses: actions/setup-node@master
     - name: Installing project dependencies
       run: npm install
+    - name: create env file
+      run: |
+        touch .env
+        echo ENGINE_API_KEY=${{ secrets.REACT_APP_TUMBASPEDIA_API_URL }} >> .env
     - name: Building the project
       run: npm run build
     - name: 📂 Sync files
