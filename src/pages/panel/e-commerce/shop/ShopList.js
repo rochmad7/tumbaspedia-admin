@@ -376,7 +376,7 @@ const ShopList = () => {
                   {/*  </div>*/}
                   {/*</DataTableRow>*/}
                   <DataTableRow>
-                    <Link to={`${process.env.PUBLIC_URL}/ecommerce/shop-details/${item.id}`}>
+                    <Link to={`${process.env.PUBLIC_URL}/shop-details/${item.id}`}>
                       <div className="user-card">
                         <UserAvatar theme={item.avatarBg} text={findUpper(item.name)} image={item.image}></UserAvatar>
                         <div className="user-info">
