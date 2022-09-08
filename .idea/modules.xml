@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/skripsi-tumbaspedia-admin.iml" filepath="$PROJECT_DIR$/.idea/skripsi-tumbaspedia-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tumbaspedia-admin.iml" filepath="$PROJECT_DIR$/.idea/tumbaspedia-admin.iml" />
     </modules>
   </component>
 </project>
