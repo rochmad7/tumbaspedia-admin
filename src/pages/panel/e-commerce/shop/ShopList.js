@@ -311,10 +311,10 @@ const ShopList = () => {
               <DataTableRow size="md">
                 <span className="sub-text">Handphone</span>
               </DataTableRow>
-              <DataTableRow size="lg">
+              <DataTableRow size="md">
                 <span className="sub-text">Gambar Toko</span>
               </DataTableRow>
-              <DataTableRow size="lg">
+              <DataTableRow size="md">
                 <span className="sub-text">NIB</span>
               </DataTableRow>
               <DataTableRow size="md">
