@@ -401,7 +401,7 @@ const ShopList = () => {
                       <img src={item.shop_picture} alt="shop-picture" width={50} />
                       </span>
                   </DataTableRow>
-                  <DataTableRow size="lg">
+                  <DataTableRow size="md">
                     <span>
                       <img src={item.nib} alt="nib" width={50} />
                       </span>
