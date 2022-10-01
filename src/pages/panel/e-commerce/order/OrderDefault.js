@@ -403,7 +403,7 @@ const OrderDefault = () => {
                   <DataTableRow size="md">
                     <span>{new Date(item.created_at).toLocaleString("id-ID")}</span>
                   </DataTableRow>
-                  <DataTableRow size="sm">
+                  <DataTableRow size="md">
                     <span className="tb-sub">{item.shop.name}</span>
                   </DataTableRow>
                   <DataTableRow>
