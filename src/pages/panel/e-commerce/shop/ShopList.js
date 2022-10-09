@@ -312,12 +312,9 @@ const ShopList = () => {
                 <span className="sub-text">Handphone</span>
               </DataTableRow>
               <DataTableRow size="md">
-                <span className="sub-text">Gambar Toko</span>
-              </DataTableRow>
-              <DataTableRow size="md">
                 <span className="sub-text">NIB</span>
               </DataTableRow>
-              <DataTableRow size="md">
+              <DataTableRow>
                 <span className="sub-text">Status</span>
               </DataTableRow>
               {/*<DataTableRow className="nk-tb-col-tools text-right">*/}
@@ -378,10 +375,10 @@ const ShopList = () => {
                   <DataTableRow>
                     <Link to={`${process.env.PUBLIC_URL}/shop-details/${item.id}`}>
                       <div className="user-card">
-                        <UserAvatar theme={item.avatarBg} text={findUpper(item.name)} image={item.image}></UserAvatar>
+                        <UserAvatar theme={item.avatarBg} text={findUpper(item.name)} image={item.shop_picture}></UserAvatar>
                         <div className="user-info">
                             <span className="tb-lead">
-                              {item.name} <span className="dot dot-success d-md-none ml-1"></span>
+                              {item.name}
                             </span>
                           <span>{item.email}</span>
                         </div>
@@ -398,15 +395,10 @@ const ShopList = () => {
                   </DataTableRow>
                   <DataTableRow size="md">
                     <span>
-                      <img src={item.shop_picture} alt="shop-picture" width={50} />
-                      </span>
-                  </DataTableRow>
-                  <DataTableRow size="md">
-                    <span>
                       <img src={item.nib} alt="nib" width={50} />
                       </span>
                   </DataTableRow>
-                  <DataTableRow size="mb">
+                  <DataTableRow>
                       <span
                         className={`tb-status text-${
                           item.is_verified === true ? "success" : "warning"

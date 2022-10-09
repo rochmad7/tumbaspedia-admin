@@ -249,6 +249,11 @@ const OrderDefault = () => {
                         <DropdownMenu right>
                           <ul className="link-list-opt no-bdr">
                             <li>
+                              <DropdownItem onClick={() => onStatusChange("")}>
+                                <span>Semua Status</span>
+                              </DropdownItem>
+                            </li>
+                            <li>
                               <DropdownItem onClick={() => onStatusChange("pending")}>
                                 <span>Tertunda</span>
                               </DropdownItem>
@@ -324,9 +329,6 @@ const OrderDefault = () => {
                 <span className="sub-text">Penjual</span>
               </DataTableRow>
               <DataTableRow>
-                <span className="sub-text">Status</span>
-              </DataTableRow>
-              <DataTableRow size="md">
                 <span className="sub-text">Produk</span>
               </DataTableRow>
               <DataTableRow size="sm">
@@ -334,6 +336,9 @@ const OrderDefault = () => {
               </DataTableRow>
               <DataTableRow>
                 <span className="sub-text">Total Harga</span>
+              </DataTableRow>
+              <DataTableRow>
+                <span className="sub-text">Status</span>
               </DataTableRow>
 
               {/*<DataTableRow className="nk-tb-col-tools">*/}
@@ -407,18 +412,6 @@ const OrderDefault = () => {
                     <span className="tb-sub">{item.shop.name}</span>
                   </DataTableRow>
                   <DataTableRow>
-                      <span
-                        className={`dot bg-${item.status === "delivered" ? "info" : item.status === "on_delivery" ? "success" : item.status === "pending" ? "warning" : "danger"} d-mb-none`}
-                      ></span>
-                    <span
-                      className={`badge badge-sm badge-dot has-bg badge-${
-                        item.status === "delivered" ? "info" : item.status === "on_delivery" ? "success" : item.status === "pending" ? "warning" : "danger"
-                      } d-mb-none`}
-                    >
-                        {item.status === "delivered" ? "Selesai" : item.status === "on_delivery" ? "Sedang Dikirim" : item.status === "pending" ? "Tertunda" : "Dibatalkan"}
-                      </span>
-                  </DataTableRow>
-                  <DataTableRow size="md">
                     <span className="tb-sub text-primary">{item.product.name}</span>
                   </DataTableRow>
                   <DataTableRow size="md">
@@ -426,6 +419,15 @@ const OrderDefault = () => {
                   </DataTableRow>
                   <DataTableRow>
                     <span className="tb-lead">Rp. {parseInt(item.total).toLocaleString('id-ID')}</span>
+                  </DataTableRow>
+                  <DataTableRow>
+                    <span
+                      className={`badge badge-sm badge-dot has-bg badge-${
+                        item.status === "delivered" ? "info" : item.status === "on_delivery" ? "success" : item.status === "pending" ? "warning" : "danger"
+                      }`}
+                    >
+                        {item.status === "delivered" ? "Selesai" : item.status === "on_delivery" ? "Sedang Dikirim" : item.status === "pending" ? "Tertunda" : "Dibatalkan"}
+                      </span>
                   </DataTableRow>
                   {/*<DataTableRow className="nk-tb-col-tools">*/}
                   {/*  <ul className="nk-tb-actions gx-1">*/}
