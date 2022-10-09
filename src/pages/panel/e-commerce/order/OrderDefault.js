@@ -403,7 +403,7 @@ const OrderDefault = () => {
                   <DataTableRow size="md">
                     <span>{new Date(item.created_at).toLocaleString("id-ID")}</span>
                   </DataTableRow>
-                  <DataTableRow size="md">
+                  <DataTableRow>
                     <span className="tb-sub">{item.shop.name}</span>
                   </DataTableRow>
                   <DataTableRow>
@@ -413,7 +413,7 @@ const OrderDefault = () => {
                     <span
                       className={`badge badge-sm badge-dot has-bg badge-${
                         item.status === "delivered" ? "info" : item.status === "on_delivery" ? "success" : item.status === "pending" ? "warning" : "danger"
-                      } d-none d-mb-inline-flex`}
+                      } d-mb-none`}
                     >
                         {item.status === "delivered" ? "Selesai" : item.status === "on_delivery" ? "Sedang Dikirim" : item.status === "pending" ? "Tertunda" : "Dibatalkan"}
                       </span>

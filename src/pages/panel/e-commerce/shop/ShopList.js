@@ -406,7 +406,7 @@ const ShopList = () => {
                       <img src={item.nib} alt="nib" width={50} />
                       </span>
                   </DataTableRow>
-                  <DataTableRow size="md">
+                  <DataTableRow size="mb">
                       <span
                         className={`tb-status text-${
                           item.is_verified === true ? "success" : "warning"
