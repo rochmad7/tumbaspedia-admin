@@ -232,6 +232,12 @@ const ShopDetails = ({ match }) => {
                         </div>
                         <div className="profile-ud-item">
                           <div className="profile-ud wider">
+                            <span className="profile-ud-label">Nomor NIB</span>
+                            <span className="profile-ud-value">{shop.nib_number}</span>
+                          </div>
+                        </div>
+                        <div className="profile-ud-item">
+                          <div className="profile-ud wider">
                             <span className="profile-ud-label">Deskripsi</span>
                             <span className="profile-ud-value">{shop.description}</span>
                           </div>
