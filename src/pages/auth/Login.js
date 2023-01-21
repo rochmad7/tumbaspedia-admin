@@ -54,7 +54,7 @@ const Login = () => {
 
   return (
     <React.Fragment>
-      <Head title="Login" />
+      <Head title="Masuk" ><title>Masuk</title></Head>
       <PageContainer>
         <Block className="nk-block-middle nk-auth-body  wide-xs">
           <div className="brand-logo pb-4 text-center">
@@ -69,7 +69,7 @@ const Login = () => {
               <BlockContent>
                 <BlockTitle tag="h4">Masuk</BlockTitle>
                 <BlockDes>
-                  <p>Silakan masukkan email dan password Anda.</p>
+                  <p>Silakan masukkan email dan kata sandi Anda.</p>
                 </BlockDes>
               </BlockContent>
             </BlockHead>
@@ -77,7 +77,7 @@ const Login = () => {
               <div className="mb-3">
                 <Alert color="danger" className="alert-icon">
                   {" "}
-                  <Icon name="alert-circle" /> Tidak bisa login dengan identitas tersebut.{" "}
+                  <Icon name="alert-circle" /> Tidak bisa masuk dengan identitas tersebut.{" "}
                 </Alert>
               </div>
             )}
@@ -104,7 +104,7 @@ const Login = () => {
               <FormGroup>
                 <div className="form-label-group">
                   <label className="form-label" htmlFor="password">
-                    Password
+                    Kata sandi
                   </label>
                   {/*<Link className="link link-primary link-sm" to={`${process.env.PUBLIC_URL}/auth-reset`}>*/}
                   {/*  Forgot Code?*/}
@@ -137,7 +137,7 @@ const Login = () => {
               </FormGroup>
               <FormGroup>
                 <Button size="lg" className="btn-block" type="submit" color="primary">
-                  {loading ? <Spinner size="sm" color="light" /> : "Sign in"}
+                  {loading ? <Spinner size="sm" color="light" /> : "Masuk"}
                 </Button>
               </FormGroup>
             </Form>
