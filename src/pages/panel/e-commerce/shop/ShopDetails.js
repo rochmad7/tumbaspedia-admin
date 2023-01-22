@@ -68,7 +68,7 @@ const ShopDetails = ({ match }) => {
     setConfirmVerification(false);
     Swal.fire({
       title: "Sukses",
-      text: isVerified ? "Toko berhasil diverifikasi" : "Verifikasi toko berhasil dibatalkan",
+      text: isVerified ? "Toko berhasil diverifikasi" : "Verifikasi toko berhasil dibatalkan"
     });
   };
 
@@ -317,7 +317,8 @@ const ShopDetails = ({ match }) => {
                       <Icon name="cross-sm"></Icon>
                     </a>
                     <div className="p-2">
-                      <h5 className="title">{verificationStatus == false ? 'Konfirmasi Verifikasi Toko' : 'Konfirmasi Pembatalan Verifikasi Toko'}</h5>
+                      <h5
+                        className="title">{verificationStatus == false ? "Konfirmasi Verifikasi Toko" : "Konfirmasi Pembatalan Verifikasi Toko"}</h5>
                       {/*  <div className="mt-4 mb-4">*/}
                       {/*    <textarea*/}
                       {/*      defaultValue={addNoteText}*/}
@@ -329,7 +330,7 @@ const ShopDetails = ({ match }) => {
                         <li>
                           <Button color="primary" size="md" type="submit"
                                   onClick={() => confirmVerifyShop(!verificationStatus)}>
-                            Verifikasi
+                            {verificationStatus == false ? "Verifikasi" : "Batalkan Verifikasi"}
                           </Button>
                         </li>
                         <li>
