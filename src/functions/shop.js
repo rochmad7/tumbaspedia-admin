@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getShops = async () => {
-  return await axios.get(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/shops?is_verified=false`, {
+  return await axios.get(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/shops?is_verified=false&sort_by=date&sort_type=desc`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`
     }
