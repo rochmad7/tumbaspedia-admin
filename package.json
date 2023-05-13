@@ -59,7 +59,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "DISABLE_ESLINT_PLUGIN=true REACT_APP_TUMBASPEDIA_API_URL=https://dev.tumbaspedia.my.id/api react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true REACT_APP_TUMBASPEDIA_API_URL=https://tumbaspedia-dev.fly.dev/api react-scripts build",
     "build:prod": "DISABLE_ESLINT_PLUGIN=true REACT_APP_TUMBASPEDIA_API_URL=https://prod.tumbaspedia.my.id/api react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
