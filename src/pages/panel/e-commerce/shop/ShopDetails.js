@@ -70,6 +70,9 @@ const ShopDetails = ({ match }) => {
       title: "Sukses",
       text: isVerified ? "Toko berhasil diverifikasi" : "Verifikasi toko berhasil dibatalkan"
     });
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
   };
 
   return (
@@ -302,46 +305,43 @@ const ShopDetails = ({ match }) => {
                   isOpen={confirmVerification}
                   toggle={() => setConfirmVerification(false)}
                   className="modal-dialog-centered"
-                  size="lg"
+                  size="md"
+                  style={{ maxWidth: "400px" }}
                 >
-                  <ModalBody>
-                    <a
-                      href="#cancel"
-                      onClick={(ev) => {
+                  <ModalBody className="d-flex flex-column align-items-center justify-content-center">
+                    <div className="position-absolute" style={{ top: "0", right: "0", padding: "12px" }}>
+                      <a href="#cancel" onClick={(ev) => {
                         ev.preventDefault();
                         setConfirmVerification(false);
-                        // setAddNoteText("");
-                      }}
-                      className="close"
-                    >
-                      <Icon name="cross-sm"></Icon>
-                    </a>
-                    <div className="p-2">
-                      <h5
-                        className="title">{verificationStatus == false ? "Konfirmasi Verifikasi Toko" : "Konfirmasi Pembatalan Verifikasi Toko"}</h5>
-                      {/*  <div className="mt-4 mb-4">*/}
-                      {/*    <textarea*/}
-                      {/*      defaultValue={addNoteText}*/}
-                      {/*      className="form-control no-resize"*/}
-                      {/*      onChange={(e) => setAddNoteText(e.target.value)}*/}
-                      {/*    />*/}
-                      {/*  </div>*/}
-                      <ul className="align-center mt-4 flex-wrap flex-sm-nowrap gx-4 gy-2">
-                        <li>
-                          <Button color="primary" size="md" type="submit"
-                                  onClick={() => confirmVerifyShop(!verificationStatus)}>
-                            {verificationStatus == false ? "Verifikasi" : "Batalkan Verifikasi"}
-                          </Button>
-                        </li>
-                        <li>
-                          <Button onClick={() => setConfirmVerification(false)} className="link link-light">
-                            Batal
-                          </Button>
-                        </li>
-                      </ul>
+                      }} className="close">
+                        <Icon name="x" />
+                      </a>
+                    </div>
+                    <div className="text-center mb-4">
+                      <h5 className="title mb-0">
+                        {verificationStatus
+                          ? "Konfirmasi Pembatalan Verifikasi Toko"
+                          : "Konfirmasi Verifikasi Toko"}
+                      </h5>
+                      <Icon
+                        name={verificationStatus ? "shield-alert" : "check-circle"}
+                        className={`text-${verificationStatus ? "warning" : "success"} mb-3`}
+                        style={{ fontSize: "7rem" }}
+                      />
+                    </div>
+                    <div className="d-flex justify-content-between w-100">
+                      <Button color="primary" size="lg" onClick={() => confirmVerifyShop(!verificationStatus)}>
+                        {verificationStatus ? "Batalkan Verifikasi" : "Verifikasi"}
+                      </Button>
+                      <Button className="link link-light ml-3" onClick={() => setConfirmVerification(false)}>
+                        Batal
+                      </Button>
                     </div>
                   </ModalBody>
                 </Modal>
+
+
+
 
                 {/*<Sidebar toggleState={sideBar}>*/}
                 {/*  <div className="card-inner">*/}
