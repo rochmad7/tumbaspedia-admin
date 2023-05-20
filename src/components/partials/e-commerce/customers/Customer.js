@@ -3,9 +3,11 @@ import { Card } from "reactstrap";
 import { Icon } from "../../../Component";
 import { TotalCustomerChart } from "../../charts/e-commerce/EcomCharts";
 import { getCountUsers, getTotalTransactions } from "../../../../functions/dashboard";
+import MyLoader from "../loader/Loader";
 
 const Customer = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getData = async () => {
     const transactionResponse = await getCountUsers();
@@ -18,7 +20,9 @@ const Customer = () => {
     let newData;
 
     const fetchData = async () => {
+      setLoading(true);
       newData = await getData(date);
+      setLoading(false);
     };
 
     fetchData().then(() => {
@@ -32,12 +36,14 @@ const Customer = () => {
         <div className="card-inner pb-0">
           <div className="card-title-group">
             <div className="card-title">
-              <h6 className="title">Jumlah Pengguna Umum</h6>
+              <h6 className="title">Jumlah Akun Pembeli</h6>
             </div>
           </div>
           <div className="data">
             <div className="data-group">
-              <div className="amount">{data.buyers_count}</div>
+              {loading ? MyLoader() : (
+                <div className="amount">{data.buyers_count}</div>
+              )}
               {/*<div className="info text-right">*/}
               {/*  <span className="change up text-danger">*/}
               {/*    <Icon name="arrow-long-up"></Icon>4.63%*/}
@@ -51,12 +57,15 @@ const Customer = () => {
         <div className="card-inner pb-0">
           <div className="card-title-group">
             <div className="card-title">
-              <h6 className="title">Jumlah Penjual</h6>
+              <h6 className="title">Jumlah Akun Penjual</h6>
             </div>
           </div>
           <div className="data">
             <div className="data-group">
-              <div className="amount">{data.shops_count}</div>
+              {loading ? MyLoader() : (
+
+                <div className="amount">{data.shops_count}</div>
+              )}
               {/*<div className="info text-right">*/}
               {/*  <span className="change up text-danger">*/}
               {/*    <Icon name="arrow-long-up"></Icon>4.63%*/}

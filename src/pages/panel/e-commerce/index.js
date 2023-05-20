@@ -35,9 +35,9 @@ const Dashboard = () => {
             {/*</Col>*/}
             <Col xxl="4" md="6">
               {/*<Row className="g-gs">*/}
-                <Col xxl="12">
-                  <Orders />
-                </Col>
+              {/*  <Col xxl="12">*/}
+              {/*    <Orders />*/}
+              {/*  </Col>*/}
                 <Col xxl="12">
                   <Customer />
                 </Col>
