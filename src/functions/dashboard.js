@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getCountTransactions = async (date) => {
-  return await axios.get(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/admins/count-transactions?date=${date}`, {
+export const getTransactionsReport = async (date) => {
+  return await axios.get(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/admins/transactions-report?date=${date}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`
@@ -9,17 +9,8 @@ export const getCountTransactions = async (date) => {
   });
 };
 
-export const getTotalTransactions = async (date) => {
-  return await axios.get(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/admins/total-transactions?date=${date}`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-    }
-  });
-};
-
-export const getCountUsers = async () => {
-  return await axios.get(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/admins/count-users`, {
+export const getUsersReport = async (date) => {
+  return await axios.get(`${process.env.REACT_APP_TUMBASPEDIA_API_URL}/admins/users-report?date=${date}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("accessToken")}`
