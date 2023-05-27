@@ -56,6 +56,11 @@ const menu = [
     text: "Transaksi",
     link: "/orders",
   },
+  {
+    icon: "package-fill",
+    text: "Produk",
+    link: "/products",
+  },
   // {
   //   icon: "package-fill",
   //   text: "Products",

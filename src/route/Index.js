@@ -11,7 +11,7 @@ import Analytics from "../pages/Analytics";
 
 import EcomOrder from "../pages/panel/e-commerce/order/OrderDefault";
 import EcomSupport from "../pages/panel/e-commerce/support/Messages";
-import EcomProducts from "../pages/panel/e-commerce/product/ProductList";
+import EcomProducts from "../pages/panel/e-commerce/product/ProductDefault";
 import EcomCustomer from "../pages/panel/e-commerce/customer/CustomerList";
 import EcomCustomerDetails from "../pages/panel/e-commerce/customer/CustomerDetails";
 import EcomIntegration from "../pages/panel/e-commerce/integration/Integration";
