@@ -1,56 +1,47 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "reactstrap";
-import { Icon } from "../../../Component";
-import { TotalSalesChart } from "../../charts/e-commerce/EcomCharts";
-import { getAllTransactions } from "../../../../functions/transaction";
-import { getTotalTransactions } from "../../../../functions/dashboard";
+import { getTransactionsReport } from "../../../../functions/dashboard";
+import MyLoader from "../loader/Loader";
 
-const TotalSales = () => {
-  const [data, setData] = useState([]);
+const TotalSales = (props) => {
+  const [loading, setLoading] = useState(true);
+  const [reportData, setReportData] = useState([]);
 
-  const getData = async (date) => {
-    const transactionResponse = await getTotalTransactions(date);
-    return transactionResponse.data.data;
+  const selectedDate = props.selectedDate;
+
+  const fetchTransactionsReport = async (date) => {
+    const transactionsReportResponse = await getTransactionsReport(date);
+    return transactionsReportResponse.data.data;
   };
 
   useEffect(() => {
-    const date = new Date();
-
-    let newData;
+    let reportData;
 
     const fetchData = async () => {
-      newData = await getData(date);
+      setLoading(true);
+
+      reportData = await fetchTransactionsReport(selectedDate);
+
+      setLoading(false);
     };
 
     fetchData().then(() => {
-      setData(newData);
+      setReportData(reportData);
     });
-  }, []);
+  }, [selectedDate]);
 
   return (
     <Card className="is-dark h-100">
-      <div className="nk-ecwg nk-ecwg1">
-        <div className="card-inner">
+      <div className="nk-ecwg nk-ecwg3">
+        <div className="card-inner pb-0">
           <div className="card-title-group">
             <div className="card-title">
-              <h6 className="title">Total Penjualan</h6>
+              <h6 className="title">Total Transaksi Tahun {selectedDate.getFullYear()}</h6>
             </div>
-            {/*<div className="card-tools">*/}
-            {/*  <a href="#report" onClick={(ev) => ev.preventDefault()} className="link">*/}
-            {/*    View Report*/}
-            {/*  </a>*/}
-            {/*</div>*/}
           </div>
           <div className="data">
-            <div className="amount">Rp. {parseInt(data.monthly_transactions).toLocaleString('id-ID')}</div>
-            {/*<div className="info">*/}
-            {/*  <strong>$7,395.37</strong> in last month*/}
-            {/*</div>*/}
-          </div>
-          <div className="data">
-            <h6 className="sub-title">Total Transaksi Seminggu Terakhir</h6>
             <div className="data-group">
-              <div className="amount">Rp. {parseInt(data.weekly_transactions).toLocaleString('id-ID')}</div>
+              <div className="amount">Rp. {parseInt(reportData.yearly_total_transactions).toLocaleString("id-ID")}</div>
               {/*<div className="info text-right">*/}
               {/*  <span className="change up text-danger">*/}
               {/*    <Icon name="arrow-long-up"></Icon>4.63%*/}
@@ -61,8 +52,72 @@ const TotalSales = () => {
             </div>
           </div>
         </div>
-        {/*<div className="nk-ecwg1-ck">*/}
-        {/*  <TotalSalesChart />*/}
+        <div className="card-inner pb-0">
+          <div className="card-title-group">
+            <div className="card-title">
+              <h6 className="title">Jumlah Transaksi Tahun {selectedDate.getFullYear()}</h6>
+            </div>
+          </div>
+          <div className="data">
+            <div className="data-group">
+                <div className="amount">{reportData.yearly_count_transactions}</div>
+              {/*  <span className="change up text-danger">*/}
+              {/*    <Icon name="arrow-long-up"></Icon>4.63%*/}
+              {/*  </span>*/}
+              {/*  <br />*/}
+              {/*  <span>vs. last week</span>*/}
+              {/*</div>*/}
+            </div>
+          </div>
+        </div>
+        <div className="card-inner pb-0">
+          <div className="card-title-group">
+            <div className="card-title">
+              <h6 className="title">Total Transaksi
+                Bulan {selectedDate.toLocaleString("id-ID", { month: "long" })} {selectedDate.getFullYear()}</h6>
+            </div>
+          </div>
+          <div className="data">
+            <div className="data-group">
+              {loading ? MyLoader() : (
+                <div
+                  className="amount">Rp. {parseInt(reportData.monthly_total_transactions).toLocaleString("id-ID")}</div>
+              )}
+              {/*<div className="info text-right">*/}
+              {/*  <span className="change up text-danger">*/}
+              {/*    <Icon name="arrow-long-up"></Icon>4.63%*/}
+              {/*  </span>*/}
+              {/*  <br />*/}
+              {/*  <span>vs. last week</span>*/}
+              {/*</div>*/}
+            </div>
+          </div>
+        </div>
+        <div className="card-inner pb-0">
+          <div className="card-title-group">
+            <div className="card-title">
+              <h6 className="title">Jumlah Transaksi
+                Bulan {selectedDate.toLocaleString("id-ID", { month: "long" })} {selectedDate.getFullYear()}</h6>
+            </div>
+          </div>
+          <div className="data">
+            <div className="data-group">
+              {loading ? MyLoader() : (
+
+                <div className="amount">{reportData.monthly_count_transactions}</div>
+              )}
+              {/*<div className="info text-right">*/}
+              {/*  <span className="change up text-danger">*/}
+              {/*    <Icon name="arrow-long-up"></Icon>4.63%*/}
+              {/*  </span>*/}
+              {/*  <br />*/}
+              {/*  <span>vs. last week</span>*/}
+              {/*</div>*/}
+            </div>
+          </div>
+        </div>
+        {/*<div className="nk-ecwg3-ck">*/}
+        {/*  <TotalCustomerChart />*/}
         {/*</div>*/}
       </div>
     </Card>
@@ -70,3 +125,4 @@ const TotalSales = () => {
 };
 
 export default TotalSales;
+

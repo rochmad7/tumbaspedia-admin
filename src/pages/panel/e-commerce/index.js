@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Content from "../../../layout/content/Content";
 import Head from "../../../layout/head/Head";
 import { Block, BlockBetween, BlockHead, BlockHeadContent, BlockTitle, Col, Row } from "../../../components/Component";
@@ -13,6 +13,8 @@ import TrafficSources from "../../../components/partials/e-commerce/traffic-sour
 import StoreVisitors from "../../../components/partials/e-commerce/store-visitors/StoreVisitors";
 
 const Dashboard = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   return (
     <React.Fragment>
       <Head title="Dashboard"></Head>
@@ -21,6 +23,22 @@ const Dashboard = () => {
           <BlockBetween>
             <BlockHeadContent>
               <BlockTitle page>Dashboard</BlockTitle>
+              <BlockTitle>
+                <div className="card-tools mt-4">
+                  <button className="btn btn-sm btn-primary"
+                          onClick={() => setSelectedDate(prevDate => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1, 1))}>
+                    Bulan Sebelumnya
+                  </button>
+                  <button className="btn btn-sm btn-info ml-2" hidden={selectedDate.getMonth() === new Date().getMonth()}
+                          onClick={() => setSelectedDate(prevDate => new Date(prevDate.getFullYear(), prevDate.getMonth() + 1, 1))}>
+                    Bulan Berikutnya
+                  </button>
+                </div>
+                <div className="card-tools mt-3">
+                  <h4 className="title">{selectedDate.toLocaleString("id-ID", { month: "long" })} {selectedDate.getFullYear()}</h4>
+                </div>
+              </BlockTitle>
+
             </BlockHeadContent>
           </BlockBetween>
         </BlockHead>
@@ -28,19 +46,19 @@ const Dashboard = () => {
         <Block>
           <Row className="g-gs">
             <Col xxl="4" md="6">
-              <TotalSales />
+              <TotalSales selectedDate={selectedDate} />
             </Col>
             {/*<Col xxl="4" md="6">*/}
             {/*  <AverageOrder />*/}
             {/*</Col>*/}
             <Col xxl="4" md="6">
               {/*<Row className="g-gs">*/}
-                <Col xxl="12">
-                  <Orders />
-                </Col>
-                <Col xxl="12">
-                  <Customer />
-                </Col>
+              {/*  <Col xxl="12">*/}
+              {/*    <Orders />*/}
+              {/*  </Col>*/}
+              {/*  <Col xxl="12">*/}
+                  <Customer selectedDate={selectedDate} />
+                {/*</Col>*/}
               {/*</Row>*/}
             </Col>
             {/*<Col xxl="8">*/}

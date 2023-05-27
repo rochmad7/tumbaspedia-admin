@@ -244,7 +244,7 @@ const OrderDefault = () => {
                           color="transparent"
                           className="dropdown-toggle dropdown-indicator btn btn-outline-light btn-white"
                         >
-                          Status
+                          {onStatus === "" ? "Semua Status" : onStatus === "pending" ? "Tertunda" : onStatus === "on_delivery" ? "Sedang Dikirim" : onStatus === "canceled" ? "Dibatalkan" : "Selesai"}
                         </DropdownToggle>
                         <DropdownMenu right>
                           <ul className="link-list-opt no-bdr">
@@ -418,7 +418,7 @@ const OrderDefault = () => {
                     <span className="tb-sub text-primary">{item.user.name}</span>
                   </DataTableRow>
                   <DataTableRow>
-                    <span className="tb-lead">Rp. {parseInt(item.total).toLocaleString('id-ID')}</span>
+                    <span className="tb-lead">Rp. {parseInt(item.total).toLocaleString("id-ID")}</span>
                   </DataTableRow>
                   <DataTableRow>
                     <span
