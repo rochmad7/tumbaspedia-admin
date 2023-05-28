@@ -248,7 +248,7 @@ const ShopList = () => {
 
   return (
     <React.Fragment>
-      <Head title="User List - Default"></Head>
+      <Head title="Toko"></Head>
       <Content>
         <BlockHead size="sm">
           <BlockBetween>

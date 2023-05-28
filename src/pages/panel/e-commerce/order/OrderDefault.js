@@ -203,7 +203,7 @@ const OrderDefault = () => {
 
   return (
     <React.Fragment>
-      <Head title="Order Default"></Head>
+      <Head title="Transaksi"></Head>
       <Content>
         <BlockHead size="sm">
           <BlockBetween>

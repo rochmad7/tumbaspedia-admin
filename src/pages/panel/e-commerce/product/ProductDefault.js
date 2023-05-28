@@ -218,7 +218,7 @@ const ProductDefault = () => {
 
   return (
     <React.Fragment>
-      <Head title="Order Default"></Head>
+      <Head title="Produk"></Head>
       <Content>
         <BlockHead size="sm">
           <BlockBetween>
@@ -442,11 +442,11 @@ const ProductDefault = () => {
                 </div>
                 <div className="text-center mb-4">
                   <h5 className="title mb-0">
-                    Promosi Produk {promotionItem.name}?
+                    {isPromoted ? '' : 'Batalkan '}Promosi Produk {promotionItem.name}?
                   </h5>
                   <Icon
-                    name={"check-circle"}
-                    className="text-success mb-3 mt-6"
+                    name={isPromoted ? "check-circle" : "alert-circle"}
+                    className={isPromoted ? "text-success" : "text-danger"}
                     style={{ fontSize: "5rem" }}
                   />
                 </div>
