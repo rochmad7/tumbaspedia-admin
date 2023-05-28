@@ -21,7 +21,9 @@ import {
   RSelect
 } from "../../../../components/Component";
 import { getDateStructured } from "../../../../utils/Utils";
-import { UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem, Button, Modal, ModalBody } from "reactstrap";
+import {
+  UncontrolledDropdown, DropdownMenu, DropdownToggle, DropdownItem, Button, Modal, ModalBody, Badge
+} from "reactstrap";
 import { useForm } from "react-hook-form";
 import { getShops } from "../../../../functions/shop";
 import { getAllTransactions } from "../../../../functions/transaction";
@@ -30,23 +32,16 @@ import { productData } from "./ProductData";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import moment from "moment";
 
 const ProductDefault = () => {
   const [data, setData] = useState(productData);
   const [smOption, setSmOption] = useState(false);
   const [formData, setFormData] = useState({
-    id: null,
-    orderId: "",
-    date: new Date(),
-    status: "",
-    customer: "",
-    purchased: "",
-    total: "",
-    check: false
+    id: null, orderId: "", date: new Date(), status: "", customer: "", purchased: "", total: "", check: false
   });
   const [view, setView] = useState({
-    add: false,
-    details: false
+    add: false, details: false
   });
   const [onSearchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -64,8 +59,7 @@ const ProductDefault = () => {
     await setPromoteProduct(id, { is_promoted: isPromoted });
     setConfirmModal(false);
     await Swal.fire({
-      title: "Sukses",
-      text: isPromoted ? "Produk berhasil dipromosikan" : "Promosi produk dibatalkan"
+      title: "Sukses", text: isPromoted ? "Produk berhasil dipromosikan" : "Promosi produk dibatalkan"
     });
     setTimeout(() => {
       window.location.reload();
@@ -98,8 +92,7 @@ const ProductDefault = () => {
   // toggle function to view order details
   const toggle = (type) => {
     setView({
-      add: type === "add" ? true : false,
-      details: type === "details" ? true : false
+      add: type === "add" ? true : false, details: type === "details" ? true : false
     });
   };
 
@@ -124,14 +117,7 @@ const ProductDefault = () => {
   // resets forms
   const resetForm = () => {
     setFormData({
-      id: null,
-      orderId: "",
-      date: new Date(),
-      status: "",
-      customer: "",
-      purchased: "",
-      total: "",
-      check: false
+      id: null, orderId: "", date: new Date(), status: "", customer: "", purchased: "", total: "", check: false
     });
   };
 
@@ -216,8 +202,7 @@ const ProductDefault = () => {
 
   const { errors, register, handleSubmit } = useForm();
 
-  return (
-    <React.Fragment>
+  return (<React.Fragment>
       <Head title="Produk"></Head>
       <Content>
         <BlockHead size="sm">
@@ -363,33 +348,31 @@ const ProductDefault = () => {
               {/*</DataTableRow>*/}
             </DataTableHead>
 
-            {currentItems.length > 0
-              ? currentItems.map((item) => (
-                <DataTableItem key={item.id}>
-                  <DataTableRow>
-                    <a href="" onClick={(ev) => ev.preventDefault()}>
-                      #{item.id}
-                    </a>
-                  </DataTableRow>
-                  <DataTableRow>
-                    <span className="tb-sub">{item.name}</span>
-                  </DataTableRow>
-                  <DataTableRow>
-                    <span className="tb-sub">{item.shop.name}</span>
-                  </DataTableRow>
-                  <DataTableRow>
-                    <span className="tb-sub text-primary">{item.price}</span>
-                  </DataTableRow>
-                  {/*<DataTableRow size="md">*/}
-                  {/*  <span className="tb-sub text-primary">{item.user.name}</span>*/}
-                  {/*</DataTableRow>*/}
-                  <DataTableRow size="md">
-                    <span className="tb-lead">{item.sold}</span>
-                  </DataTableRow>
-                  <DataTableRow>
-                    <span className="tb-lead">{item.category.name}</span>
-                  </DataTableRow>
-                  <DataTableRow>
+            {currentItems.length > 0 ? currentItems.map((item) => (<DataTableItem key={item.id}>
+                <DataTableRow>
+                  <a href="" onClick={(ev) => ev.preventDefault()}>
+                    #{item.id}
+                  </a>
+                </DataTableRow>
+                <DataTableRow>
+                  <span className="tb-sub">{item.name}</span>
+                </DataTableRow>
+                <DataTableRow>
+                  <span className="tb-sub">{item.shop.name}</span>
+                </DataTableRow>
+                <DataTableRow>
+                  <span className="tb-sub text-primary">{item.price}</span>
+                </DataTableRow>
+                {/*<DataTableRow size="md">*/}
+                {/*  <span className="tb-sub text-primary">{item.user.name}</span>*/}
+                {/*</DataTableRow>*/}
+                <DataTableRow size="md">
+                  <span className="tb-lead">{item.sold}</span>
+                </DataTableRow>
+                <DataTableRow>
+                  <span className="tb-lead">{item.category.name}</span>
+                </DataTableRow>
+                <DataTableRow>
                     <span className="tb-sub">
                       <Button
                         color="primary"
@@ -404,27 +387,30 @@ const ProductDefault = () => {
                         <Icon name="edit" className="mr-1"></Icon>
                         Promosi
                       </Button>
-                      {item.category.id === 1 ? (
-                        <Button
-                          color="danger"
-                          size="sm"
-                          className="ml-1 mt-1 mt-md-0"
-                          onClick={() => {
-                            setConfirmModal(true);
-                            setPromotionItem(item);
-                            setIsPromoted(false);
-                          }}
-                        >
-                          <Icon name="trash"></Icon>
-                          Batalkan Promosi
-                        </Button>
-                      ) : null}
+                      {item.category.id === 1 ? (<>
+                          <Button
+                            color="danger"
+                            size="sm"
+                            className="ml-1 mt-1 mt-md-0"
+                            onClick={() => {
+                              setConfirmModal(true);
+                              setPromotionItem(item);
+                              setIsPromoted(false);
+                            }}
+                          >
+                            <Icon name="trash"></Icon>
+                            Batalkan Promosi
+                          </Button>
+                          <div style={{ display: "flex", alignItems: "flex-end" }}>
+<span className="tb-sub text-primary ml-1 mt-1" style={{ fontSize: "0.8rem" }}>
+Dipromosikan pada {moment(item.promoted_at).format("DD-MM-YYYY")}
+</span>
+                          </div>
+                        </>) : null}
                     </span>
-                  </DataTableRow>
+                </DataTableRow>
 
-                </DataTableItem>
-              ))
-              : null}
+              </DataTableItem>)) : null}
 
             <Modal
               isOpen={confirmModal}
@@ -464,18 +450,14 @@ const ProductDefault = () => {
             </Modal>
           </div>
           <PreviewAltCard>
-            {data.length > 0 ? (
-              <PaginationComponent
+            {data.length > 0 ? (<PaginationComponent
                 itemPerPage={itemPerPage}
                 totalItems={data.length}
                 paginate={paginate}
                 currentPage={currentPage}
-              />
-            ) : (
-              <div className="text-center">
+              />) : (<div className="text-center">
                 <span className="text-silent">Transaksi tidak ditemukan</span>
-              </div>
-            )}
+              </div>)}
           </PreviewAltCard>
         </Block>
 
@@ -573,10 +555,10 @@ const ProductDefault = () => {
                         <div className="form-control-wrap">
                           <RSelect
                             name="status"
-                            options={[
-                              { value: "On Hold", label: "On Hold" },
-                              { value: "Delivered", label: "Delivered" }
-                            ]}
+                            options={[{ value: "On Hold", label: "On Hold" }, {
+                              value: "Delivered",
+                              label: "Delivered"
+                            }]}
                             onChange={(e) => setFormData({ ...formData, status: e.value })}
                             defaultValue={formData.status}
                           />
@@ -624,9 +606,7 @@ const ProductDefault = () => {
                     className={`dot bg-${formData.status === "Delivered" ? "success" : "warning"} d-mb-none`}
                   ></span>
                   <span
-                    className={`badge badge-sm badge-dot has-bg badge-${
-                      formData.status === "Delivered" ? "success" : "warning"
-                    } d-none d-mb-inline-flex`}
+                    className={`badge badge-sm badge-dot has-bg badge-${formData.status === "Delivered" ? "success" : "warning"} d-none d-mb-inline-flex`}
                   >
                     {formData.status}
                   </span>
@@ -648,8 +628,7 @@ const ProductDefault = () => {
           </ModalBody>
         </Modal>
       </Content>
-    </React.Fragment>
-  );
+    </React.Fragment>);
 };
 
 export default ProductDefault;
