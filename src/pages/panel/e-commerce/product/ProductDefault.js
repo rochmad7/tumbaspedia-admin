@@ -65,7 +65,7 @@ const ProductDefault = () => {
     setConfirmModal(false);
     await Swal.fire({
       title: "Sukses",
-      text: isPromoted ? "Produk berhasil dipromosikan" : "Promosi produk dibatalkan",
+      text: isPromoted ? "Produk berhasil dipromosikan" : "Promosi produk dibatalkan"
     });
     setTimeout(() => {
       window.location.reload();
@@ -390,7 +390,7 @@ const ProductDefault = () => {
                     <span className="tb-lead">{item.category.name}</span>
                   </DataTableRow>
                   <DataTableRow>
-                    <span className="tb-lead">
+                    <span className="tb-sub">
                       <Button
                         color="primary"
                         size="sm"
@@ -404,19 +404,21 @@ const ProductDefault = () => {
                         <Icon name="edit" className="mr-1"></Icon>
                         Promosi
                       </Button>
-                      <Button
-                        color="danger"
-                        size="sm"
-                        className="ml-1 mt-1 mt-md-0"
-                        onClick={() => {
-                          setConfirmModal(true);
-                          setPromotionItem(item);
-                          setIsPromoted(false);
-                        }}
-                      >
-                        <Icon name="trash"></Icon>
-                        Batalkan Promosi
-                      </Button>
+                      {item.category.id === 1 ? (
+                        <Button
+                          color="danger"
+                          size="sm"
+                          className="ml-1 mt-1 mt-md-0"
+                          onClick={() => {
+                            setConfirmModal(true);
+                            setPromotionItem(item);
+                            setIsPromoted(false);
+                          }}
+                        >
+                          <Icon name="trash"></Icon>
+                          Batalkan Promosi
+                        </Button>
+                      ) : null}
                     </span>
                   </DataTableRow>
 
@@ -442,7 +444,7 @@ const ProductDefault = () => {
                 </div>
                 <div className="text-center mb-4">
                   <h5 className="title mb-0">
-                    {isPromoted ? '' : 'Batalkan '}Promosi Produk {promotionItem.name}?
+                    {isPromoted ? "" : "Batalkan "}Promosi Produk {promotionItem.name}?
                   </h5>
                   <Icon
                     name={isPromoted ? "check-circle" : "alert-circle"}
