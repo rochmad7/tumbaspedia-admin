@@ -358,10 +358,10 @@ const ProductDefault = () => {
                   <span className="tb-sub">{item.name}</span>
                 </DataTableRow>
                 <DataTableRow>
-                  <span className="tb-sub">{item.shop.name}</span>
+                  <span className="tb-sub text-primary">{item.shop.name}</span>
                 </DataTableRow>
                 <DataTableRow>
-                  <span className="tb-sub text-primary">{item.price}</span>
+                  <span className="tb-sub">{item.price}</span>
                 </DataTableRow>
                 {/*<DataTableRow size="md">*/}
                 {/*  <span className="tb-sub text-primary">{item.user.name}</span>*/}
@@ -370,7 +370,7 @@ const ProductDefault = () => {
                   <span className="tb-lead">{item.sold}</span>
                 </DataTableRow>
                 <DataTableRow>
-                  <span className="tb-lead">{item.category.name}</span>
+                  <span className="tb-lead text-warning">{item.category.name}</span>
                 </DataTableRow>
                 <DataTableRow>
                     <span className="tb-sub">
